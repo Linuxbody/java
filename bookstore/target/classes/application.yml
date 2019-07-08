@@ -1,0 +1,23 @@
+spring:
+#  thymeleaf 模板引擎
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+
+
+# 数据库连接
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot?characterEncoding=utf-8
+    username: root
+    password: ts123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+#jpa 设置
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect

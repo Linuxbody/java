@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+
+    <meta charset="UTF-8"/>
+    <title th:text="${tiitle}"></title>
+</head>
+
+<body>
+
+<div class="contentDiv">
+    <h5 th:text="${title}"> </h5> <br>
+
+    <form action="/bookcreate" th:action="@{/bookcreate}" method="post">
+        <!--  隐藏 id   -->
+        <input type="hidden" name="id" th:value="${book.id}">
+        书籍名称: <input type="text" name="bookname" th:value="${book.bookname}"> <br>
+        书籍作者: <input type="text" name="writer" th:value="${book.writer}"> <br>
+        书籍简介: <input type="text" name="introduction" th:value="${book.introduction}"> <br>
+        <input type="submit" value="提交">
+    </form>
+</div>
+
+
+
+</body>
+</html>

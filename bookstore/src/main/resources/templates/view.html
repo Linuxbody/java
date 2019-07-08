@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+<br>
+<h5> <a href="/" th:href="@{/}">返回书籍列表</a> </h5>
+<div>
+    <p><strong>ID:</strong><span id="id" th:text="${book.id}"></span></p>
+    <p><strong>bookName:</strong><span id="bookName" th:text="${book.bookname}"></span></p>
+    <p><strong>writer:</strong><span id="writer" th:text="${book.writer}"></span></p>
+    <p><strong>introduction:</strong><span id="introduction" th:text="${book.introduction}"></span></p>
+
+</div>
+</body>
+</html>
