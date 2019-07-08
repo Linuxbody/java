@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1>用户列表</h1>
+<br>
+ <h5> <a href="/users/from" th:href="@{/users/from}">创建用户</a> </h5>
+
+
+    <div>
+        <table border="2">
+            <thead>
+            <tr>
+                <td> ID </td>
+                <td> Name </td>
+                <td> Email </td>
+                <td> Address </td>
+                <td> 操作 </td>
+            </tr>
+            </thead>
+            <tbody>
+            <!--  判断用户是否为空显示内容   -->
+            <tr th:if="${userModel.userList.size()} eq 0">
+                <td colspan="3"> 当前没有用户信息 </td>
+            </tr>
+
+            <tr th:each="user : ${userModel.userList}">
+                <td th:text="${user.id}"></td>
+                <td> <a th:href="@{'/users/'+ ${user.id}}" th:text="${user.name}"></a></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.address}"></td>
+                <td>
+                    <a th:href="@{'/users/delete/' + ${user.id}}"> 删除 </a>
+                    <a th:href="@{'/users/update/' + ${user.id}}"> 修改 </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

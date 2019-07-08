@@ -1,0 +1,24 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: utf-8
+    servlet:
+      content-type: text/html
+    cache: false
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot?characterEncoding=utf-8
+    username: root
+    password: ts123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+  jpa:
+#    控制台输出
+    show-sql: true
+#    每次启动都把之前的数据删除并重新创建，开发的时候使用
+#    hibernate:
+#      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.MySQLDialect

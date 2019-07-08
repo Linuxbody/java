@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1>创建用户</h1>
+<br>
+<h5> <a href="/users" th:href="@{/users}">用户列表</a>  </h5>
+
+<form action="/users" th:action="@{/users}" method="post" th:object="${userModel.user}">
+    <!--  隐藏 id   -->
+    <input type="hidden" name="id" th:value="*{id}">
+    姓名: <input type="text" name="name" th:value="*{name}"> <br>
+    邮箱: <input type="text" name="email" th:value="*{email}"> <br>
+    地址: <input type="text" name="address" th:value="*{address}"> <br>
+    <input type="submit" value="提交">
+
+</form>
+
+
+</div>
+</body>
+</html>
