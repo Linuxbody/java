@@ -13,7 +13,9 @@
     <h1 align="center" th:text="${title}"></h1>
 
     <br>
-    <h5> <a href="/bookcreate" th:href="@{/bookcreate}">新增书籍</a> </h5>
+    <h5> <a href="/bookcreate" th:href="@{/bookcreate}">新增书籍</a> </h5> <br>
+
+
     <table class="table table-hover table-condensed">
         <thead>
         <tr>
@@ -49,4 +51,15 @@
 
 
 </body>
+<script>
+    $(function () {
+        //下拉框更改查询事件
+        $("#select").change(function () {
+            // 提交表单
+            var form = document.getElementById("form")
+            form.submit()
+        });
+    });
+
+</script>
 </html>

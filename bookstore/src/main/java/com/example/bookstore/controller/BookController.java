@@ -12,13 +12,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.jws.WebParam;
 
 
 /**
  * Book 控制层
  */
 @Controller
-@RequestMapping(value = "/")
+//@RequestMapping(value = "/")
 public class BookController {
 
     /**
@@ -33,7 +34,8 @@ public class BookController {
      * @param model
      * @return
      */
-    @RequestMapping(method = RequestMethod.GET)
+//    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping({"/", "/index"})
     public String getBookList(Model model) {
         model.addAttribute("booklist", bookService.findAll());
         model.addAttribute("title", "书籍列表");
@@ -53,7 +55,8 @@ public class BookController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/bookcreate", method = RequestMethod.GET)
+//    @RequestMapping(value = "/bookcreate", method = RequestMethod.GET)
+    @GetMapping({"/bookcreate"})
     public String getBookCreate(Model model){
         model.addAttribute("book", new Book(null, null, null));
         model.addAttribute("title", "添加书籍");
@@ -67,7 +70,8 @@ public class BookController {
      * @param book
      * @return
      */
-    @RequestMapping(value = "/bookcreate", method = RequestMethod.POST)
+//    @RequestMapping(value = "/bookcreate", method = RequestMethod.POST)
+    @PostMapping({"/bookcreate"})
     public String postBook(@ModelAttribute Book book) {
         bookService.insertByBook(book);
         return "redirect:/";
@@ -80,7 +84,8 @@ public class BookController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping({"/{id}"})
     public String getBookId(@PathVariable Long id, Model model) {
         Book book = bookService.findById(id);
         model.addAttribute("book", book);
@@ -94,7 +99,8 @@ public class BookController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+//    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+    @GetMapping({"/update/{id}"})
     public String bookUpdate(@PathVariable Long id, Model model){
 
         model.addAttribute("book", bookService.findById(id));
@@ -102,17 +108,19 @@ public class BookController {
         return "bookForm";
     }
 
-    public String putBook(@ModelAttribute Book book) {
-        bookService.update(book);
-        return "bookList";
-    }
+//    @RequestMapping(value = "/update", method = RequestMethod.POST)
+//    public String putBook(@ModelAttribute Book book) {
+//        bookService.update(book);
+//        return "bookList";
+//    }
 
     /**
      * 删除 Book
      * @param id
      * @return
      */
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+//    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @GetMapping({"/delete/{id}"})
     public String deleteBook(@PathVariable Long id){
         bookService.delete(id);
         return "redirect:/";
